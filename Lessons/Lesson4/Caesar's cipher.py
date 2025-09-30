@@ -28,11 +28,9 @@ from string import ascii_letters as alpha
 
 def caesar_cipher(data: str, key: int) -> str:
     # print(data)
-    return ''.join(map(
-                        (lambda bukva: ((alpha[alpha.find(bukva) + key])
-                                        if (alpha.find(bukva) + key) < len(alpha)
-                                          else alpha[alpha.find(bukva) + key - len(alpha)])
-                                            if bukva in alpha else bukva), data))
+    return ''.join(map((lambda bukva: (alpha[(alpha.find(bukva) + key)% len(alpha)]
+                                        if bukva in alpha else bukva)), data))
+
 # test = 'Doggy'
 # key = 5
 #
@@ -43,3 +41,13 @@ def caesar_cipher(data: str, key: int) -> str:
 # print(caesar_cipher(test, key))
 # print(caesar_cipher(test2, key2))
 
+#   alpha[(alpha.find(bukva) + key)% len(alpha)] if bukva in alpha else bukva
+#  работает если ИСТИНА if (условие) else работет если ЛОЖЬ
+
+'''
+((alpha[alpha.find(bukva) + key])
+                                        if (alpha.find(bukva) + key) < len(alpha)
+                                          else alpha[alpha.find(bukva) + key - len(alpha)])
+                                            if bukva in alpha else bukva
+
+'''
