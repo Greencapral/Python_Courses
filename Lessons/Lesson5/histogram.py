@@ -37,7 +37,7 @@ def histogram(data: str) -> str:
     str_dif = sorted(str_dif.items())       # сортируем буковки
     n = len(str_dif)                        # понимаем ширину графика
 
-    for i in range(peak, 0, -1):                 # цикл по высоте
+    for i in range(peak, 0, -1):                 # цикл по высоте пика
         for j in range(n):                  # цикл по ширине
             if int(str_dif[j][1]) < i:   # если по ключу значение меньше номера ряда то "пробел"
                 result = result + ' '
