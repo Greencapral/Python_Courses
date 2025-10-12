@@ -16,6 +16,6 @@ def is_palindrome(data: str) -> bool:
     temp_str = ''.join(data.lower().split())
     return True if temp_str == temp_str[::-1] else False
 
-test = 'А роза упала на лапу Азора'
+test = 'А    роза  упала    на лапу Азора   '
 
 print(is_palindrome(test))

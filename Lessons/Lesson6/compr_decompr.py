@@ -26,7 +26,6 @@ amateur_uncompressed = RLEAmateur.rle_uncompression('a1b2c3a2b3c1')
 print(amateur_uncompressed)  # Вывод: abbcccaabbbc
 
 '''
-from datetime import date
 
 
 # from itertools import groupby
@@ -41,42 +40,41 @@ class RLE:
         i = 1
         counter = 1
 
-        while i < len(data) :
-            if data[i-1] == data[i]:
+        while i < len(data):
+            if data[i - 1] == data[i]:
                 counter += 1
             else:
-                str_dif.append(data[i-1])
+                str_dif.append(data[i - 1])
                 stroka_scheta.append(counter)
                 counter = 1
-            i+=1
+            i += 1
         str_dif.append(data[-1])
         stroka_scheta.append(counter)
 
         i = 0
-        while i < len(str_dif) :
+        while i < len(str_dif):
             res = res + str_dif[i] + str(stroka_scheta[i])
-            i +=1
+            i += 1
 
         return res
-
 
     @staticmethod
     def rle_uncompression(compression_data: str) -> str:
         """Восстанавливает строку из сжатого представления RLE."""
         i = 0
-        res =''
+        res = ''
 
         while i < len(compression_data):
             j = 0
-            while j < int(compression_data[i+1]):
+            while j < int(compression_data[i + 1]):
                 res = res + compression_data[i]
-                j +=1
+                j += 1
             i += 2
 
         return res
 
 
-RLEAmateur= RLE()
+RLEAmateur = RLE()
 
 amateur_compressed = RLEAmateur.rle_compression('abbcccaabbbc')
 print(amateur_compressed)

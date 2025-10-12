@@ -27,7 +27,6 @@ Python is the BEST!, 20 -> jSNBIH CM NBy VYmn!
 from string import ascii_letters as alpha
 
 def caesar_cipher(data: str, key: int) -> str:
-    # print(data)
     return ''.join(map((lambda bukva: (alpha[(alpha.find(bukva) + key)% len(alpha)]
                                         if bukva in alpha else bukva)), data))
 

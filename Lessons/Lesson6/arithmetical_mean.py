@@ -27,6 +27,13 @@ def arithmetical_mean(a) ->int:
 test1 = '10 20 30 40'
 test2 = '100 200 100'
 test3 = '-100 200 500'
+test5 = ''
+
+test5 = input('?')
+print(test5)
+print(type(test5))
+print(arithmetical_mean(test5))
+
 # arithmetical_mean(test1)
 # arithmetical_mean(test2)
 # arithmetical_mean(test3)

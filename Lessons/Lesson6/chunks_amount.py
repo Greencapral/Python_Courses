@@ -1,4 +1,4 @@
-'''
+"""
 
 Навыки: Функции, значения по умолчанию, арифметические операции
 
@@ -23,13 +23,13 @@ chunk_size — размер одного чанка в байтах (по умо
 23456, 2056 -> 11, 840
 2048 -> 2, 0
 
-'''
+"""
+
 
 def chunks_amount(file_size: int, chunk_size: int = 1024):
     return int(file_size // chunk_size), int(file_size % chunk_size)
 
 
-s= chunks_amount(23456, 2056)
+s = chunks_amount(23456, 2056)
 print(s)
 print(chunks_amount(2048))
-
