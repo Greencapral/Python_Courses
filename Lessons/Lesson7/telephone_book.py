@@ -2,6 +2,7 @@ import json
 import time
 
 CONTACT = {
+    """ в ph_b_model.py """
     'ID': 0,
     'Name': '',
     'Surname': '',
@@ -12,6 +13,7 @@ CONTACT = {
 
 
 def menu():
+    """ в ph_b_view.py """
     print('Пожалуйста, введите номер пункта для выбора операции:')
     print('-' * 25)
     print('[1] - Показать все имеющиеся контакты')
@@ -24,11 +26,13 @@ def menu():
 
 
 def file_save(context):
+    """ в ph_b_model.py """
     with open('contact.json', 'w') as fl:
         json.dump(context, fl)
 
 
 def file_load():
+    """ в ph_b_model.py """
     with open('contact.json', 'r') as fl:
         try:
             context = json.load(fl)
@@ -38,6 +42,7 @@ def file_load():
 
 
 def show_all_contacts():
+    """ в ph_b_view.py """
     context = file_load()
     if not context:
         print('*' * 25)
@@ -57,6 +62,7 @@ def show_all_contacts():
 
 
 def show_cart():
+    """ в ph_b_view.py """
     print(f'Имя        : {CONTACT['Name']}')
     print(f'Фамилия    : {CONTACT['Surname']}')
     print(f'Телефон(🔑): {CONTACT['Phone']}')
@@ -66,6 +72,7 @@ def show_cart():
 
 
 def new_contact():
+    """ в ph_b_view.py """
     global CONTACT
     all_id = []
 
@@ -115,7 +122,7 @@ def new_contact():
 
 
 def search_contact():
-
+    """ в ph_b_view.py """
     while True:
         print('Пожалуйста, введите номер пункта для выбора операции:')
         print('-' * 25)
@@ -185,6 +192,7 @@ def search_contact():
 
 
 def find_one(field, value):
+    """ в ph_b_model.py """
     result = []
     context = file_load()
     for i in context:
@@ -194,6 +202,7 @@ def find_one(field, value):
 
 
 def select_edit():
+    """ в ph_b_view.py """
     print('-' * 25)
     print('Вообще-то, по хорошему, прежде чем изменять, объект неплохо было бы найти...')
     edit_item = int(input('Но если вы такой умный, то просто введите ID записи для изменения: '))
@@ -201,6 +210,7 @@ def select_edit():
 
 
 def edit_contact(vibor):
+    """ в ph_b_view.py """
     print('-' * 25)
     context = file_load()
     try:
@@ -242,6 +252,7 @@ def edit_contact(vibor):
 
 
 def delete_contact():
+    """ в ph_b_view.py """
     temp = ''
     print('-' * 25)
     print('Вообще-то, по хорошему, прежде чем удалять, объект неплохо было бы найти...')
@@ -268,7 +279,7 @@ def delete_contact():
         print('-' * 25)
         time.sleep(1)
 
-
+""" в ph_b_controller.py """
 try:
     with open('contact.json', 'r') as file:
         tmp = file.read()
